@@ -82,7 +82,7 @@ export class HttpRequestParser implements RequestParser {
         removeHeader(headers, 'content-length');
 
         // check request type
-        const isGraphQlRequest = getHeader(headers, 'X-Request-Type').toLowerCase() === 'graphql';
+        const isGraphQlRequest = String(getHeader(headers, 'X-Request-Type')).toLowerCase() === 'graphql';
         if (isGraphQlRequest) {
             removeHeader(headers, 'X-Request-Type');
 
